@@ -25,19 +25,19 @@ Built with Go, this app interfaces with the Pokémon API ([https://pokeapi.co/](
    git clone https://github.com/almaraz333/go-pokedex-cli.git
    ```
 2. Navigate to the project directory:
-```bash
-cd go-pokedex-cli
-```
+   ```bash
+   cd go-pokedex-cli
+   ```
 3. Build the application:
-```bash
-go build
-```
+   ```bash
+   go build
+   ```
 ## Running the Application
 
 Run the application using the following command:
-```bash
-./go-pokedex-cli
-```
+   ```bash
+   ./go-pokedex-cli
+   ```
 
 ## Usage
 
