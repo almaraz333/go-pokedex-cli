@@ -15,7 +15,7 @@ Built with Go, this app interfaces with the Pokémon API ([https://pokeapi.co/](
 
 ### Prerequisites
 
-- Go (version x.x.x or later) installed on your machine.
+- Go (version 1.21.4 or later) installed on your machine.
 - Internet connection for accessing the Pokémon API.
 
 ### Installation
