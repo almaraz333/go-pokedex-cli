@@ -7,7 +7,7 @@ Built with Go, this app interfaces with the Pokémon API ([https://pokeapi.co/](
 
 ## Features
 
-- **Explore the Pokémon Universe:** Browse through a comprehensive list of Pokémon.
+- **Explore the Pokémon Universe:** Browse through a comprehensive list of areas from the Pokemon universe.
 - **Catch Pokémon:** Engage in the classic experience of catching Pokémon.
 - **Personal Pokédex:** View and manage your collection of Pokémon in a personalized Pokédex.
 
