@@ -32,13 +32,16 @@ Built with Go, this app interfaces with the Pokémon API ([https://pokeapi.co/](
    ```bash
    go build
    ```
+Alternatively, if you have make installed you can run the build and run steps with: 
+   ```bash
+   make
+   ```
 ## Running the Application
 
 Run the application using the following command:
    ```bash
    ./go-pokedex-cli
    ```
-
 ## Usage
 
 Here's a quick guide on how to use the Go Pokedex CLI:
