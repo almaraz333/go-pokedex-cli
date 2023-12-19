@@ -8,7 +8,7 @@ import (
 	"net/http"
 )
 
-func MapCallback(config *Config, cache *Cache, params string) {
+func MapCallback(config *Config, cache *Cache, params *PokeParams, pokedex map[string]PokemonRes) {
 
 	cacheData, exists := cache.Get(config.NextUrl, cache)
 

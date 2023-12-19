@@ -8,7 +8,7 @@ import (
 	"net/http"
 )
 
-func MapBackCallback(config *Config, cache *Cache, params string) {
+func MapBackCallback(config *Config, cache *Cache, params *PokeParams, pokedex map[string]PokemonRes) {
 	if config.PrevUrl == nil {
 		fmt.Println("Nothing to go back to")
 		return

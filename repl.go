@@ -40,9 +40,28 @@ func startRepl() {
 			Description: "Explore the current area",
 			Callback:    internal.ExploreCallbak,
 		},
+		"catch": {
+			Name:        "Catch",
+			Description: "Catch a pokemon in the current area",
+			Callback:    internal.CatchCallback,
+		},
+		"inspect": {
+			Name:        "Inspect",
+			Description: "Get info about a pokemon in your pokedex",
+			Callback:    internal.InspectCallback,
+		},
+		"pokedex": {
+			Name:        "Pokedex",
+			Description: "List the pokemon in your pokedex",
+			Callback:    internal.PokedexCallback,
+		},
 	}
 
 	scanner := bufio.NewScanner(os.Stdin)
+
+	params := &internal.PokeParams{}
+
+	pokedex := map[string]internal.PokemonRes{}
 
 	for {
 		fmt.Print("\nPokedex > ")
@@ -51,14 +70,15 @@ func startRepl() {
 		commandSplit := strings.Split(scanner.Text(), " ")
 
 		command := commandSplit[0]
-		var params string
 
-		if len(commandSplit) > 1 {
-			params = commandSplit[1]
+		if command == "explore" {
+			params.Location = commandSplit[1]
+		} else if command == "catch" {
+			params.PokemonToCatch = commandSplit[1]
 		}
 
 		if val, ok := commands[command]; ok {
-			val.Callback(&config, &cache, params)
+			val.Callback(&config, &cache, params, pokedex)
 		}
 	}
 }

@@ -8,20 +8,19 @@ import (
 	"net/http"
 )
 
-func ExploreCallbak(config *Config, cache *Cache, params string) {
-	if params == "" {
+func ExploreCallbak(config *Config, cache *Cache, params *PokeParams, pokedex map[string]PokemonRes) {
+	if params.Location == "" {
 		fmt.Println("Please provide an area to explore...")
 		return
 	}
 
 	exploreRes := ExploreRes{}
 
-	fmt.Printf("Exploring %v ...\n", params)
+	fmt.Printf("Exploring %v ...\n", params.Location)
 
-	cachedData, exists := cache.Get(params, cache)
+	cachedData, exists := cache.Get(params.Location, cache)
 
 	if exists {
-
 		unmarshError := json.Unmarshal(cachedData, &exploreRes)
 
 		if unmarshError != nil {
@@ -36,7 +35,7 @@ func ExploreCallbak(config *Config, cache *Cache, params string) {
 		return
 	}
 
-	res, err := http.Get("https://pokeapi.co/api/v2/location-area/" + params)
+	res, err := http.Get("https://pokeapi.co/api/v2/location-area/" + params.Location)
 
 	if err != nil {
 		fmt.Println("Something went wrong...")
@@ -54,7 +53,7 @@ func ExploreCallbak(config *Config, cache *Cache, params string) {
 		log.Fatal(err)
 	}
 
-	cache.Add(params, body, cache)
+	cache.Add(params.Location, body, cache)
 
 	unmarshError := json.Unmarshal(body, &exploreRes)
 
